@@ -5,7 +5,7 @@ const APIKEY = localStorage.get("weather-api-key");
 const WEATHER_URL_STUB = "./data/weather.json";
 const WEATHER_URL_PROD = `https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&appid=${APIKEY}`;
 
-const apiURL = WEATHER_URL_STUB;
+const apiURL = WEATHER_URL_PROD;
 
 const DIRECTORY_DATA_URL_PROD = "<PRODUCTION_URL_HERE>";
 const DIRECTORY_DATA_URL_STUB = "./data/business.json";
