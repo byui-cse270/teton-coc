@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="./styles/medium.css" />
     <link rel="stylesheet" href="./styles/large.css" />    
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="./scripts/header-footer.js" defer></script>    
-    <script src="./scripts/thankyou.js" defer></script>    
+    <script src="./scripts/header-footer.js" defer></script>   
+    <script src="./scripts/join.js" defer></script> 
   </head>
   <body>
     <div id="content">
@@ -46,13 +46,53 @@
         <div class="header-today">
           <p></p>
         </div>
-    </header>
-    <main class="thankyou-main">
-      <section>
-        <h3 class="thankyou">Thank you for joining the chamber! We're excited to have you with us.</h3>
-        <div class="join-confirm">            
-        </div>
-      </section>
+      </header>
+    <main class="join-wizard-main">
+        <section>
+            <h3>Welcome to the Teton Chamber of Commerce Signup Wizard!</h3>
+            <p>To make it easy as possible to help you sign up for the Teton Idaho Chamber of Commerce, please fill in the required information.</p>
+            <form action="join-step4.html" method="GET">
+                <fieldset>                    
+                    <legend>Review the membership benefits below and choose the one that most interests you</legend>
+                    <h3>Non-Profit Membership</h3>          
+                    <ul>
+                      <li>For non profit organizations and there is no fee</li>
+                    </ul>
+                    <h3>Bronze Membership</h3>
+                    <ul>
+                      <li>15% discount on events</li>          
+                      <li>10% discount on advertising</li>          
+                      <li>Fee of $50/month</li>
+                    </ul>
+                    
+                    <h3>Silver Membership</h3>
+                    <ul>
+                      <li>25% discount on events</li>
+                      <li>15% discount on advertising</li>
+                      <li>Free participation in the trade fair</li>
+                      <li>Fee of $100/month</li>
+                    </ul>
+            
+                    <h3>Gold Membership</h3>
+                    <ul>
+                      <li>50% discount on events</li>          
+                      <li>50% discount on advertising</li>          
+                      <li>Free participation in the trade fair</li>          
+                      <li>5 free featured ads per year</li>          
+                      <li>1 free training per quarter</li>          
+                      <li>Fee of $250/month</li>
+                    </ul>
+                  <hr>
+                    <h3>Which Membership Do You Choose?</h3>          
+                    <label class="myradio"><input type="radio" name="level" value="nonprofit" required>Non-Profit</label>
+                    <label class="myradio"><input type="radio" name="level" value="bronze">Bronze</label>
+                    <label class="myradio"><input type="radio" name="level" value="silver">Silver</label>
+                    <label class="myradio"><input type="radio" name="level" value="gold">Gold</label>
+                    <button onclick="history.back()">Previous Step</button>
+                    <input type="submit" name="submit" value="Next Step">
+                </fieldset>
+            </form>
+        </section>
     </main>
     <footer>
       <div class="footer-content">
@@ -70,6 +110,6 @@
         </div>
       </div>
     </footer>
-  </div>        
+  </div>
   </body>
 </html>

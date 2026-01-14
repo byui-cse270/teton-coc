@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/large.css" />    
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="./scripts/header-footer.js" defer></script>    
-    <script src="./scripts/thankyou.js" defer></script>    
+    <script src="./scripts/join.js" defer></script>
   </head>
   <body>
     <div id="content">
@@ -46,13 +46,22 @@
         <div class="header-today">
           <p></p>
         </div>
-    </header>
-    <main class="thankyou-main">
-      <section>
-        <h3 class="thankyou">Thank you for joining the chamber! We're excited to have you with us.</h3>
-        <div class="join-confirm">            
-        </div>
-      </section>
+      </header>
+    <main class="join-wizard-main">
+        <section>
+            <h3>Welcome to the Teton Chamber of Commerce Signup Wizard!</h3>
+            <p>To make it easy as possible to help you sign up for the Teton Idaho Chamber of Commerce, please fill in the required information.</p>
+            <form action="thankyou.html" method="GET">
+                <fieldset>                    
+                    <legend>Describe your business to us. We will use this information in your spotlight!</legend>                    
+                    <label class="myinput">Website URL<input type="url" name="websiteURL" required></label>                    
+                    <label class="myinput">Business Description<textarea name="description" cols="40" rows="5"></textarea></label>
+                    <label><input id="currentdate" type="hidden" name="currentdate" value=""></label>
+                    <button onclick="history.back()">Previous Step</button>
+                    <input type="submit" name="submit" value="Join the Chamber!">
+                </fieldset>
+            </form>
+        </section>
     </main>
     <footer>
       <div class="footer-content">
@@ -70,6 +79,6 @@
         </div>
       </div>
     </footer>
-  </div>        
+  </div>
   </body>
 </html>

@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/medium.css" />
-    <link rel="stylesheet" href="./styles/large.css" />    
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="./styles/large.css" />   
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> 
     <script src="./scripts/header-footer.js" defer></script>    
-    <script src="./scripts/thankyou.js" defer></script>    
+    <script src="./scripts/join.js" defer></script>
   </head>
   <body>
     <div id="content">
@@ -46,13 +46,21 @@
         <div class="header-today">
           <p></p>
         </div>
-    </header>
-    <main class="thankyou-main">
-      <section>
-        <h3 class="thankyou">Thank you for joining the chamber! We're excited to have you with us.</h3>
-        <div class="join-confirm">            
-        </div>
-      </section>
+      </header>
+    <main class="join-wizard-main">
+        <section>
+            <h3>Welcome to the Teton Chamber of Commerce Signup Wizard!</h3>
+            <p>To make it easy as possible to help you sign up for the Teton Idaho Chamber of Commerce, please fill in the required information.</p>
+            <form action="join-step3.html" method="GET">
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label class="myinput">Email<input type="email" name="email" required></label>
+                    <label class="myinput">Cell Phone<input type="tel" name="cellphone" placeholder="208-458-4000" required></label>                    
+                    <button onclick="history.back()">Previous Step</button>
+                    <input type="submit" name="submit" value="Next Step">
+                </fieldset>
+            </form>
+        </section>
     </main>
     <footer>
       <div class="footer-content">
@@ -70,6 +78,6 @@
         </div>
       </div>
     </footer>
-  </div>        
-  </body>
+  </div>
+  </body>  
 </html>
