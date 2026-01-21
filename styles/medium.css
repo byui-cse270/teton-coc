@@ -1,10 +1,6 @@
 /** Medium.css **/
-@media (min-width: 720px){
-    
-    body {
-        font-size: 16px;
-      }
-      
+@media (min-width: 800px){
+          
 
     .main-join{
         display: block;
@@ -21,17 +17,7 @@
 
     .main-spotlight{
         display: flex;
-    }
-
-    .centered-image{
-        text-align: center;
-        min-width: none;
-    }
-    
-    .centered-image img{
-        width: auto;
-    }
-    
+    }    
 
     .main-hero{
         grid-area: h;
@@ -71,7 +57,7 @@
     }
 
     .main-spotlight div{
-        height: 33%;
+        height: 50%;
     }    
     
 }
