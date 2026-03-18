@@ -1,14 +1,6 @@
 # bank_account.py
 
 def create_account(name, opening_balance=0):
-    """
-    Return a new account represented as a dict:
-      {"name": name, "balance": int, "transactions": list}
-    If opening_balance != 0, record ("opening_balance", opening_balance).
-    Notice this is a TUPLE () rather than a LIST []. 
-    A tuple is just an immutable version of a list.
-    """
-    # TODO: validate name and opening_balance when appropriate
     acct = {
         "name": name,
         # store integer balance
@@ -17,43 +9,39 @@ def create_account(name, opening_balance=0):
         "transactions": [],
     }
     if opening_balance != 0:
-        # TODO: apply opening balance and record transaction
-        raise NotImplementedError("TODO: apply opening_balance")
+        acct["balance"] += opening_balance
+        acct["transactions"].append(("opening_balance", opening_balance))
     return acct
 
 def deposit(account, amount):
-    """
-    Add amount to account["balance"] and record ("deposit", amount).
-    - amount must be a positive integer; otherwise raise ValueError.
-    - modify account in-place and return True.
-    """
-    # TODO: implement deposit rules
-    raise NotImplementedError("TODO: implement deposit")
+    if amount > 0:
+        account["balance"] += amount
+        account["transactions"].append(("deposit", amount))
+        return True
+    raise ValueError("Amount must be a positive integer")
 
 def withdraw(account, amount):
-    """
-    Subtract amount from account["balance"] and record ("withdraw", amount).
-    - amount must be a positive integer and <= balance; otherwise raise ValueError.
-    - modify account in-place and return True.
-    """
-    # TODO: implement withdraw
-    raise NotImplementedError("TODO: implement withdraw")
+    if amount > 0 and amount <= account["balance"]:
+        account["balance"] -= amount
+        account["transactions"].append(("withdraw", amount))
+        return True
+    elif amount <= 0 or amount > account["balance"]:
+        raise ValueError("Amount must be a positive integer and less than or equal to balance")
 
 def transfer(from_account, to_account, amount):
-    """
-    Transfer amount from from_account to to_account.
-    - both accounts must be valid account dicts (created by create_account)
-    - amount must be positive integer and <= from_account balance
-    - on success: mutate both accounts, record ("transfer_out", amount)
-      in from_account and ("transfer_in", amount) in to_account, then return True.
-    - on failure: raise ValueError without mutating accounts.
-    """
-    # TODO: implement transfer safely (validate before mutating)
-    raise NotImplementedError("TODO: implement transfer")
+    if isinstance(from_account, dict) and isinstance(to_account, dict):
+        if amount > 0 and amount <= from_account["balance"]:
+            from_account["balance"] -= amount
+            from_account["transactions"].append(("transfer_out", amount))
+            to_account["balance"] += amount
+            to_account["transactions"].append(("transfer_in", amount))
+            return True
+        elif amount <= 0 or amount > from_account["balance"]:
+            raise ValueError("Amount must be a positive integer and less than or equal to from_account balance")
+        else:
+            raise ValueError("Both accounts must be valid account dicts")
+    else:
+        raise ValueError("Both accounts must be valid account dicts")
 
 def account_str(account):
-    """
-    Return a readable single-line summary like "Alice: 100"
-    """
-    # TODO: create and return the string
-    raise NotImplementedError("TODO: implement account_str")
+    return f"{account['name']}: {account['balance']}"
